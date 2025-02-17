@@ -1,8 +1,7 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
-import "./notFound.css";
 
-function NotFound() {
+function About() {
     return (
         <>
 
@@ -12,4 +11,4 @@ function NotFound() {
     )   
 }
 
-export default NotFound;
+export default About;

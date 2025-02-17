@@ -1,8 +1,7 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
-import "./projects.css";
 
-function Projects() {
+function Services() {
     return (
         <>
 
@@ -12,4 +11,4 @@ function Projects() {
     )   
 }
 
-export default Projects;
+export default Services;

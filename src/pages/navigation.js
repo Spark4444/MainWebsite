@@ -1,8 +1,7 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
-import "./main.css";
 
-function Main() {
+function Navigation() {
     return (
         <>
 
@@ -12,4 +11,4 @@ function Main() {
     )   
 }
 
-export default Main;
+export default Navigation;

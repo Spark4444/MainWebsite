@@ -4,7 +4,7 @@ import { Outlet, Link } from "react-router-dom";
 function Main() {
     return (
         <>
-
+            
 
             <Outlet />
         </>

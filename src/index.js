@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import * as functions from "./function";
@@ -8,6 +8,7 @@ import About from "./pages/about";
 import Projects from "./pages/projects";
 import Services from "./pages/services";
 import NotFound from "./pages/notFound";
+import ChudjakAndDefenceOfAgartha from "./projects/games/ChudjakAndDefenceOfAgartha";
 import "./css/style.css";
 
 export function changeMainColors(bgColor, textColor, outlineColor) {
@@ -22,7 +23,12 @@ export function changeTheme(themeId){
   changeMainColors(variations[themeId][0], variations[themeId][1], variations[themeId][2]);
 }
 
+
 function App() {
+  useEffect(() => {
+    document.querySelectorAll("*").forEach( element => element.style.transition = "0.5s linear");
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -34,15 +40,16 @@ function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
         <Route path="/projects/games">
-          {/* Route here */}
+          <Route path="ChudjakAndDefenceOfAgartha" element={<ChudjakAndDefenceOfAgartha/>}/>
         </Route>
         <Route path="/projects/tools">
-          {/* Route here */}
+          <Route path="CreateATable" />
         </Route>
       </Routes>
     </BrowserRouter>
   )
 }
+
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 root.render(<App />);

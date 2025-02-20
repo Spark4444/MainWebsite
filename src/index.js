@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
 import * as functions from "./function";
 import Navigation from "./pages/navigation";
 import Main from "./pages/main";
@@ -8,7 +8,6 @@ import About from "./pages/about";
 import Projects from "./pages/projects";
 import Services from "./pages/services";
 import NotFound from "./pages/notFound";
-import ChudjakAndDefenceOfAgartha from "./projects/games/ChudjakAndDefenceOfAgartha";
 import "./css/style.css";
 
 export function changeMainColors(bgColor, textColor, outlineColor) {
@@ -23,6 +22,15 @@ export function changeTheme(themeId){
   changeMainColors(variations[themeId][0], variations[themeId][1], variations[themeId][2]);
 }
 
+function Iframe(props){
+  return (
+    <>
+      <iframe src={`/${props.name}/${props.name}/${props.directory}/index.htm${`l`}`} />
+
+      <Outlet />
+    </>
+  )
+}
 
 function App() {
   useEffect(() => {
@@ -40,10 +48,11 @@ function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
         <Route path="/projects/games">
-          <Route path="ChudjakAndDefenceOfAgartha" element={<ChudjakAndDefenceOfAgartha/>}/>
+          <Route path="ChudjakAndDefenceOfAgartha" element={<Iframe name="ChudjakAndDefenceOfAgartha" directory="games"/>}/>
+          <Route path="MettatonNeoFangame" element={<Iframe name="MettatonNeoFangame" directory="games"/>}/>
         </Route>
         <Route path="/projects/tools">
-          <Route path="CreateATable" />
+          <Route path="CreateATable" element={<Iframe name="CreateATable" directory="tools"/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
